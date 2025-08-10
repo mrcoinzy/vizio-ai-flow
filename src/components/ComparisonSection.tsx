@@ -19,21 +19,7 @@ export default function ComparisonSection() {
 
   return (
     <div className="min-h-screen w-full bg-[hsl(var(--background))] relative overflow-hidden text-white">
-      {/* animated background glows */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#8A2BE2]/30 blur-3xl"
-        initial={{ opacity: 0, scale: 0.8, x: -40, y: -40 }}
-        animate={{ opacity: 1, scale: 1, x: [-20, 0, -10], y: [-20, 0, -10] }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-fuchsia-600/20 blur-3xl"
-        initial={{ opacity: 0, scale: 0.8, x: 40, y: 40 }}
-        animate={{ opacity: 1, scale: 1, x: [10, 0, 15], y: [10, 0, 15] }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatType: "reverse", repeatDelay: 7 }}
-      />
+      {/* A háttér blur és ívek a SharedBackground komponensben vannak, hogy folyamatosan áthúzódjanak. */}
 
       <main className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-24">
         {/* Lead block */}
