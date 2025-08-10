@@ -15,7 +15,7 @@ export default function SharedBackground() {
       <div className="grid-overlay absolute inset-0 opacity-[0.12]" />
 
       {/* Balról érkező koncentrikus ívek – nagyobb méretben, hogy átlógjon a következő szekcióba is */}
-      <div className="ring-gradient" style={{ bottom: "-520px", left: "-360px" }} />
+      <div className="ring-gradient" style={{ bottom: "-220px", left: "-360px" }} />
     </div>
   );
 }
