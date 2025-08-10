@@ -29,7 +29,7 @@ function AiLaszloHero() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pt-8">
           <div className="flex items-center gap-5">
             <div className="relative flex items-center">
-              
+              <img id="logo-img" src="/lovable-uploads/23331ebe-3999-4522-ad66-7af6c42ff357.png" alt="László logó" className="h-24 md:h-28 select-none" draggable={false} />
             </div>
             <nav id="menu-nav" className="hidden items-center gap-6 text-sm md:flex">
               <a className="opacity-80 transition-opacity hover:opacity-100" href="#">Főoldal</a>
