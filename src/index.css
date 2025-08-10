@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,5 +102,48 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, sans-serif;
   }
+}
+
+/* Additional theme tokens and components for the AI hero */
+@layer base {
+  :root {
+    /* Brand + CTA tokens */
+    --brand: 280 100% 50%;
+    --brand-foreground: 0 0% 100%;
+    --hero-bg: 0 0% 7%;
+    --cta-bg: 0 0% 100%;
+    --cta-fg: 0 0% 7%;
+
+    /* Shadows and motion */
+    --shadow-elegant: 0 12px 40px hsl(var(--brand) / 0.25);
+  }
+
+  /* Scoped dark theme for the hero without global dark mode */
+  .theme-ai {
+    --background: var(--hero-bg);
+    --foreground: 0 0% 98%;
+    --primary: var(--brand);
+    --primary-foreground: var(--brand-foreground);
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: var(--brand);
+  }
+}
+
+@layer components {
+  .soft-shadow { box-shadow: var(--shadow-elegant); }
+  .brand-grad-text { background: linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--brand)) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grid-overlay { background-image: linear-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.06) 1px, transparent 1px); background-size: 140px 140px, 140px 140px; }
+  .ring-gradient { position: absolute; width: 1200px; height: 1200px; left: -360px; bottom: -420px; border-radius: 50%; border: 2px solid hsl(var(--brand) / 0.35); transform: rotate(12deg); }
+  .ring-gradient::after { content: ""; position: absolute; inset: 70px; border-radius: 50%; border: 2px solid hsl(var(--brand) / 0.18); }
+  /* Pointer-reactive ambient glow */
+  #ai-hero-root::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(400px 400px at var(--mx, 50%) var(--my, 30%), hsl(var(--brand) / 0.25), transparent 60%); pointer-events: none; filter: blur(30px); opacity: 0.7; }
+  @media (prefers-reduced-motion: reduce) {
+    #ai-hero-root::before { display: none; }
+  }
+  .bubble-avatar { background: radial-gradient(60% 60% at 50% 35%, hsl(var(--foreground) / 0.8) 0%, hsl(var(--foreground) / 0.2) 28%, hsl(var(--brand) / 0.45) 70%, hsl(var(--brand) / 0.8) 100%); }
 }
