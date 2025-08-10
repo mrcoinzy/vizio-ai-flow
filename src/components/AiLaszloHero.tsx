@@ -15,7 +15,7 @@ function AiLaszloHero() {
   };
 
   return (
-    <div id="ai-hero-root" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground" onMouseMove={handleMouseMove}>
+    <div id="ai-hero-root" className="relative min-h-screen w-full overflow-visible bg-[hsl(var(--background)/0.95)] text-foreground" onMouseMove={handleMouseMove}>
       {/* Background decor */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-40 -top-40 h-[720px] w-[720px] rounded-full opacity-60 blur-[140px] bg-[hsl(var(--brand))]"></div>
