@@ -108,11 +108,11 @@ All colors MUST be HSL.
 
 /* Additional theme tokens and components for the AI hero */
 @layer base {
-  :root {
+:root {
     /* Brand + CTA tokens */
     --brand: 280 100% 50%;
     --brand-foreground: 0 0% 100%;
-    --hero-bg: 0 0% 7%;
+    --hero-bg: 0 0% 6.7%;
     --cta-bg: 0 0% 100%;
     --cta-fg: 0 0% 7%;
 

@@ -18,7 +18,7 @@ export default function ComparisonSection() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#0b0b10] relative overflow-hidden text-white">
+    <div className="min-h-screen w-full bg-[hsl(var(--background))] relative overflow-hidden text-white">
       {/* animated background glows */}
       <motion.div
         aria-hidden
