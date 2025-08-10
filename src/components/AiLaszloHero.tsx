@@ -29,7 +29,7 @@ function AiLaszloHero() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pt-8">
           <div className="flex items-center gap-5">
             <div className="relative flex items-center">
-              <img id="logo-img" src={LOGO_SRC} alt="László logó" className="h-8 md:h-9 select-none" draggable={false} />
+              <img id="logo-img" src="/lovable-uploads/50a7f9f4-475e-42d3-8a52-5ea7dd833993.png" alt="László logó" className="h-8 md:h-9 select-none" draggable={false} />
               <img id="grid-img" src={GRID_SRC} alt="díszített rács" aria-hidden="true" className="pointer-events-none absolute -left-8 -top-8 w-20 opacity-70" />
             </div>
             <nav id="menu-nav" className="hidden items-center gap-6 text-sm md:flex">
