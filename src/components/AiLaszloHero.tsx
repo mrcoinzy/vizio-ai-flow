@@ -15,8 +15,14 @@ function AiLaszloHero() {
   };
 
   return (
-    <div id="ai-hero-root" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground" onMouseMove={handleMouseMove}>
-      {/* Háttér elemek most a közös SharedBackground-ban vannak */}
+    <div id="ai-hero-root" className="relative min-h-screen w-full overflow-visible bg-background text-foreground" onMouseMove={handleMouseMove}>
+      {/* Background decor */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-40 -top-40 h-[720px] w-[720px] rounded-full opacity-60 blur-[140px] bg-[hsl(var(--brand))]"></div>
+        <div className="absolute -right-40 top-24 h-[680px] w-[680px] rounded-full opacity-70 blur-[140px] bg-[hsl(var(--brand))]"></div>
+        <div className="grid-overlay absolute inset-0 opacity-[0.12]"></div>
+        <div className="ring-gradient"></div>
+      </div>
 
       {/* Header */}
       <header className="relative z-10">
