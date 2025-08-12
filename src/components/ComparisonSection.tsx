@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import HeroServicePicker from "./HeroServicePicker";
 
 export default function ComparisonSection() {
   // Variants
@@ -18,7 +19,7 @@ export default function ComparisonSection() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[hsl(var(--background))] relative overflow-hidden text-white">
+    <div className="min-h-screen w-full bg-[hsl(var(--background))] relative overflow-visible text-white">
       {/* animated background glows */}
       <motion.div
         aria-hidden
@@ -62,6 +63,11 @@ export default function ComparisonSection() {
             Én napok alatt leszállítom a teljes rendszert – egy áron, kompromisszum nélkül.
           </motion.p>
         </motion.section>
+
+        {/* Service Picker (under lead block, no new section) */}
+        <div className="relative overflow-visible mt-10 md:mt-12">
+          <HeroServicePicker />
+        </div>
 
         {/* Title */}
         <motion.h2
