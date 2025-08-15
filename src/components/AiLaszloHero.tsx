@@ -66,15 +66,6 @@ function AiLaszloHero() {
               <a href="#audit">Ingyenes AI audit</a>
             </Button>
           </div>
-          <div className="mt-14 flex flex-col items-center">
-            <Button variant="heroOutline" size="sm" className="px-5 py-2">Partnereim</Button>
-            <div className="relative mt-6 w-[220px] rounded-2xl bg-[hsl(var(--foreground)/0.05)] p-4 text-center backdrop-blur-md soft-shadow">
-              <div className="mx-auto -mt-12 flex h-20 w-20 items-center justify-center rounded-full bg-[hsl(var(--foreground)/0.1)] ring-2 ring-[hsl(var(--foreground)/0.2)]">
-                <div className="bubble-avatar h-16 w-16 rounded-full"></div>
-              </div>
-              <div className="mt-5 text-xs opacity-80">Lukács Nikolász</div>
-            </div>
-          </div>
         </div>
       </main>
     </div>
