@@ -118,10 +118,10 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">
+          <h2 className="text-2xl leading-snug md:text-4xl md:leading-snug font-semibold mb-6">
             Szolgáltatásaim
           </h2>
-          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto">
+          <p className="mt-3 text-sm/6 text-white/70 md:text-base/7 max-w-3xl mx-auto">
             Komplex digitális megoldások, amelyek valóban működnek és eredményt hoznak az üzletednek
           </p>
         </motion.div>
