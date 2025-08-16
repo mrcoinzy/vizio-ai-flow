@@ -146,7 +146,7 @@ export default function ServicesSection() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative h-full p-8 rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-lg">
+              <div className="relative h-full p-8 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-lg">
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
