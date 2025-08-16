@@ -106,7 +106,7 @@ export default function ServicesSection() {
     <section className="min-h-screen w-full bg-[#111111] text-white py-20 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -118,10 +118,10 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-semibold mb-6">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6">
             Szolgáltatásaim
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto">
             Komplex digitális megoldások, amelyek valóban működnek és eredményt hoznak az üzletednek
           </p>
         </motion.div>
@@ -146,7 +146,7 @@ export default function ServicesSection() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative h-full p-8 rounded-2xl bg-white border border-gray-200 overflow-hidden">
+              <div className="relative h-full p-8 rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-lg">
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}

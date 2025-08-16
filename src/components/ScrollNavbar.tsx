@@ -43,7 +43,7 @@ export default function ScrollNavbar() {
                 <img 
                   src="/lovable-uploads/23331ebe-3999-4522-ad66-7af6c42ff357.png" 
                   alt="László logó" 
-                  className="h-16 select-none" 
+                  className="h-24 select-none" 
                   draggable={false} 
                 />
               </div>
