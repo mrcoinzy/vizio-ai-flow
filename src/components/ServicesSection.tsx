@@ -61,14 +61,14 @@ const SERVICES = [
   {
     id: "app",
     title: "Nexus App",
-    subtitle: "App/MVP 48h alatt",
+    subtitle: "Hamarosan",
     description: "Egyszerű web/app MVP (auth, űrlapok, lista, alap riport), no-code/low-code + AI, saját domain.",
     time: "~48 óra",
     price: "149 000 Ft-tól",
     originalPrice: "490 000 Ft",
     guarantee: "Határidő-garancia",
     notIncluded: "nagyvállalati integrációk",
-    cta: "Érdekel az MVP 48h alatt",
+    cta: "Hamarosan elérhető",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="7" y="2" width="10" height="20" rx="2" />
