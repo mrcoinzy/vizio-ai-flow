@@ -213,9 +213,7 @@ export default function ServicesSection() {
         ease: [0.22, 1, 0.36, 1],
         delay: 0.3
       }} className="text-center mt-16">
-          <p className="text-lg text-white/70 mb-8">
-            Készen állsz a következő szintre lépni?
-          </p>
+          <p className="text-lg text-white/70 mb-8">Határidő-garancia + 100% pénzvisszafizetés. Ha csúszunk, visszautalunk és az elkészült anyag akkor is a tiéd.</p>
           <motion.button whileHover={{
           scale: 1.05
         }} whileTap={{
