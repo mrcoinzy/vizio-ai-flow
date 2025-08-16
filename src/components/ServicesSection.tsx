@@ -123,7 +123,7 @@ export default function ServicesSection() {
             Ahol a multik hónapokig egyeztetnek, mi holnapra leszállítjuk a működő rendszert.
           </h2>
           <p className="mt-3 text-sm/6 text-white/70 md:text-base/7 max-w-3xl mx-auto">
-            Nexus AI gyárt, mi emberként felügyelünk. Nincs mellébeszélés, nincs „majd jövő hónapban": 24–48 órán belül kézzelfogható eredményt kapsz – webet, videót, kampányt vagy egy működő app-MVP-t. Határidő-garancia + 100% pénzvisszafizetés. Ha csúszunk, visszautalunk – és az elkészült anyag akkor is a tiéd.
+            Készen állsz a következő szintre lépni?
           </p>
         </motion.div>
 
@@ -232,7 +232,7 @@ export default function ServicesSection() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
           >
-            Beszéljünk a projektedről
+            Nagyob szintre emelem a vállalkozásomat
           </motion.button>
         </motion.div>
       </div>
