@@ -150,19 +150,19 @@ export default function ServicesSection() {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="inline-flex p-4 rounded-xl bg-white mb-6">
+                  <div className="inline-flex p-4 rounded-xl backdrop-blur-lg bg-white/10 border border-white/20 mb-6">
                     <div className="text-[#9900FF]">
                       {service.icon}
                     </div>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-semibold mb-4 text-black">
+                  <h3 className="text-xl font-semibold mb-4 text-white">
                     {service.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-white/70 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
