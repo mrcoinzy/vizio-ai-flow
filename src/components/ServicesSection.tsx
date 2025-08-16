@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 const SERVICES = [
   {
     id: "web",
-    title: "Nexus Web — Weboldal 24h",
-    description: "Mit kapsz: 1 oldalas vagy mini-site (3–5 szekció), mobil-first, gyors betöltés, űrlap/naptár, alap SEO, jogi oldal sablon, mérés.\nIdő: max. 24 óra.\nÁr: Listaár: 140 000 Ft → Béta ár: 59 000 Ft-tól\nGarancia: ha nem készül el időre, 100% visszatérítés + a kész anyag a tiéd.\nNem fér bele: egyedi backend, komplex webshop (külön csomag).",
+    title: "Nexus Web",
+    subtitle: "Weboldal 24h alatt",
+    description: "1 oldalas vagy mini-site (3–5 szekció), mobil-first, gyors betöltés, űrlap/naptár, alap SEO, jogi oldal sablon, mérés.",
+    time: "max. 24 óra",
+    price: "59 000 Ft-tól",
+    originalPrice: "140 000 Ft",
+    guarantee: "100% visszatérítés + kész anyag a tiéd",
+    notIncluded: "egyedi backend, komplex webshop",
     cta: "Kérem a 24h webet",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
@@ -16,8 +22,14 @@ const SERVICES = [
   },
   {
     id: "video",
-    title: "Nexus Video — Mini-Ads 6–7h",
-    description: "Mit kapsz: 15–60 mp social/ads videó (script + vágás + felirat + zene/licenc stock), márkához igazítva.\nIdő: max. 7 óra.\nÁr: Listaár: 79 000 Ft → Béta ár: 7 000 Ft-tól (1 formátum, 1 revízió)\nGarancia: ha nem kész, 100% vissza + fájl a tiéd.\nNem fér bele: helyszíni forgatás, színész, 3D (opcióként kérhető).",
+    title: "Nexus Video",
+    subtitle: "Mini-Ads 6–7h alatt",
+    description: "15–60 mp social/ads videó (script + vágás + felirat + zene/licenc stock), márkához igazítva.",
+    time: "max. 7 óra",
+    price: "7 000 Ft-tól",
+    originalPrice: "79 000 Ft",
+    guarantee: "100% vissza + fájl a tiéd",
+    notIncluded: "helyszíni forgatás, színész, 3D",
     cta: "Kérek egy videót ma",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
@@ -28,8 +40,14 @@ const SERVICES = [
   },
   {
     id: "marketing",
-    title: "Nexus Launch — Kampány & marketing 24–48h",
-    description: "Mit kapsz: ajánlat/üzenet csiszolás, 1 landing, 3-részes e-mail sor, 3–5 hirdetésvariáció, alap targeting és mérés.\nIdő: 24–48 óra.\nÁr: Listaár: 89 000 Ft → Béta ár: 29 000 Ft-tól\nGarancia: ha 7 nap alatt nincs mérhető aktivitás (kattintás/lead), díjmentes újratervezés.",
+    title: "Nexus Launch",
+    subtitle: "Kampány & marketing 24–48h",
+    description: "Ajánlat/üzenet csiszolás, 1 landing, 3-részes e-mail sor, 3–5 hirdetésvariáció, alap targeting és mérés.",
+    time: "24–48 óra",
+    price: "29 000 Ft-tól",
+    originalPrice: "89 000 Ft",
+    guarantee: "7 nap alatt nincs aktivitás = díjmentes újratervezés",
+    notIncluded: "",
     cta: "Indítsuk el a kampányt",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
@@ -42,8 +60,14 @@ const SERVICES = [
   },
   {
     id: "app",
-    title: "Nexus App — App/MVP 48h",
-    description: "Mit kapsz: egyszerű web/app MVP (auth, űrlapok, lista, alap riport), no-code/low-code + AI, saját domain.\nIdő: ~48 óra.\nÁr: Listaár: 490 000 Ft → Béta ár: 149 000 Ft-tól\nMegjegyzés: nagyvállalati integrációk külön ütem/ár.",
+    title: "Nexus App",
+    subtitle: "App/MVP 48h alatt",
+    description: "Egyszerű web/app MVP (auth, űrlapok, lista, alap riport), no-code/low-code + AI, saját domain.",
+    time: "~48 óra",
+    price: "149 000 Ft-tól",
+    originalPrice: "490 000 Ft",
+    guarantee: "Határidő-garancia",
+    notIncluded: "nagyvállalati integrációk",
     cta: "Érdekel az MVP 48h alatt",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
@@ -125,29 +149,64 @@ export default function ServicesSection() {
               {/* Card */}
               <div className="relative h-full p-8 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-lg">
                 {/* Content */}
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col h-full">
                   {/* Icon */}
-                  <div className="inline-flex p-4 rounded-xl backdrop-blur-lg bg-white/10 border border-white/20 mb-6">
+                  <div className="inline-flex p-4 rounded-xl backdrop-blur-lg bg-white/10 border border-white/20 mb-6 w-fit">
                     <div className="text-white">
                       {service.icon}
                     </div>
                   </div>
                   
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold mb-4 text-white">
-                    {service.title}
-                  </h3>
+                  {/* Title & Subtitle */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold mb-1 text-white">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#9900FF] text-sm font-medium">
+                      {service.subtitle}
+                    </p>
+                  </div>
                   
                   {/* Description */}
-                  <p className="text-white/70 leading-relaxed mb-6 whitespace-pre-line">
+                  <p className="text-white/70 leading-relaxed mb-6 text-sm">
                     {service.description}
                   </p>
+
+                  {/* Info Grid */}
+                  <div className="space-y-3 mb-6 flex-grow">
+                    {/* Time */}
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5">
+                      <span className="text-white/60 text-xs">Idő:</span>
+                      <span className="text-white font-medium text-sm">{service.time}</span>
+                    </div>
+                    
+                    {/* Price */}
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5">
+                      <span className="text-white/60 text-xs">Béta ár:</span>
+                      <div className="text-right">
+                        <span className="text-[#9900FF] font-bold text-sm">{service.price}</span>
+                        <div className="text-white/40 text-xs line-through">{service.originalPrice}</div>
+                      </div>
+                    </div>
+
+                    {/* Guarantee */}
+                    <div className="py-2 px-3 rounded-lg bg-green-500/10 border border-green-500/20">
+                      <span className="text-green-400 text-xs font-medium">Garancia: {service.guarantee}</span>
+                    </div>
+
+                    {/* Not Included */}
+                    {service.notIncluded && (
+                      <div className="py-2 px-3 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                        <span className="text-orange-400 text-xs">Nem tartalmazza: {service.notIncluded}</span>
+                      </div>
+                    )}
+                  </div>
 
                   {/* CTA Button */}
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full px-6 py-3 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                    className="w-full px-6 py-3 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mt-auto"
                   >
                     {service.cta}
                   </motion.button>
