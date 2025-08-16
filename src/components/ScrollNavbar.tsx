@@ -34,15 +34,16 @@ export default function ScrollNavbar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-black/20 border-b border-white/10"
+          className="fixed top-0 left-0 right-0 z-50"
+          style={{ marginTop: '30px' }}
         >
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="mx-auto flex items-center justify-between px-6 py-4 backdrop-blur-lg bg-black/20 border border-white/10" style={{ width: '70%', borderRadius: '100px' }}>
             <div className="flex items-center gap-5">
               <div className="relative flex items-center">
                 <img 
                   src="/lovable-uploads/23331ebe-3999-4522-ad66-7af6c42ff357.png" 
                   alt="László logó" 
-                  className="h-12 select-none" 
+                  className="h-16 select-none" 
                   draggable={false} 
                 />
               </div>

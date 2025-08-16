@@ -103,11 +103,10 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-20 relative overflow-hidden">
+    <section className="min-h-screen w-full bg-[#111111] text-white py-20 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -119,7 +118,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-semibold mb-6">
             Szolgáltatásaim
           </h2>
           <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
@@ -147,34 +146,26 @@ export default function ServicesSection() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative h-full p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm overflow-hidden">
-                {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-                
+              <div className="relative h-full p-8 rounded-2xl bg-white border border-gray-200 overflow-hidden">
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} mb-6`}>
-                    {service.icon}
+                  <div className="inline-flex p-4 rounded-xl bg-white mb-6">
+                    <div className="text-[#9900FF]">
+                      {service.icon}
+                    </div>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-semibold mb-4 group-hover:text-white transition-colors">
+                  <h3 className="text-xl font-semibold mb-4 text-black">
                     {service.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-white/70 group-hover:text-white/90 transition-colors leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
-
-                {/* Animated border */}
-                <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-purple-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
-                     style={{ mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'xor' }} />
               </div>
             </motion.div>
           ))}
@@ -194,7 +185,7 @@ export default function ServicesSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            className="px-8 py-4 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
           >
             Beszéljünk a projektedről
           </motion.button>

@@ -50,7 +50,7 @@ function AiLaszloHero() {
       {/* Main hero */}
       <main className="relative z-10">
         <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pb-24 pt-20 text-center md:pt-28">
-          <div className="brand-grad-text text-sm font-semibold tracking-wider opacity-90 text-center">{`{ Ai ügynökség }`}</div>
+          <div className="text-sm font-semibold tracking-wider opacity-90 text-center text-white">{`{ Ai ügynökség }`}</div>
           <h1 className="mt-5 text-3xl font-semibold leading-[1.15] md:text-5xl text-center">
             Amit mások hónapok alatt csinálnak, én napok alatt leszállítom teljes, működő üzleti rendszerként.
           </h1>
