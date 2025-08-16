@@ -4,32 +4,33 @@ import { motion } from "framer-motion";
 const SERVICES = [
   {
     id: "web",
-    title: "Webfejlesztés",
-    description: "Modern, SEO-optimalizált weboldalak, amelyek konvertálnak és gyorsak.",
+    title: "Nexus Web — Weboldal 24h",
+    description: "Mit kapsz: 1 oldalas vagy mini-site (3–5 szekció), mobil-first, gyors betöltés, űrlap/naptár, alap SEO, jogi oldal sablon, mérés.\nIdő: max. 24 óra.\nÁr: Listaár: 140 000 Ft → Béta ár: 59 000 Ft-tól\nGarancia: ha nem készül el időre, 100% visszatérítés + a kész anyag a tiéd.\nNem fér bele: egyedi backend, komplex webshop (külön csomag).",
+    cta: "Kérem a 24h webet",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="4" width="18" height="12" rx="2" />
         <path d="M2 20h20" />
       </svg>
-    ),
-    color: "from-blue-500 to-cyan-500"
+    )
   },
   {
-    id: "software",
-    title: "Szoftverfejlesztés",
-    description: "Testreszabott szoftverek és alkalmazások üzleti folyamatok automatizálására.",
+    id: "video",
+    title: "Nexus Video — Mini-Ads 6–7h",
+    description: "Mit kapsz: 15–60 mp social/ads videó (script + vágás + felirat + zene/licenc stock), márkához igazítva.\nIdő: max. 7 óra.\nÁr: Listaár: 79 000 Ft → Béta ár: 7 000 Ft-tól (1 formátum, 1 revízió)\nGarancia: ha nem kész, 100% vissza + fájl a tiéd.\nNem fér bele: helyszíni forgatás, színész, 3D (opcióként kérhető).",
+    cta: "Kérek egy videót ma",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
+        <polygon points="23 7 16 12 23 17 23 7" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
       </svg>
-    ),
-    color: "from-purple-500 to-indigo-500"
+    )
   },
   {
     id: "marketing",
-    title: "Marketing",
-    description: "Teljes körű digitális marketing stratégia és kampánykezelés.",
+    title: "Nexus Launch — Kampány & marketing 24–48h",
+    description: "Mit kapsz: ajánlat/üzenet csiszolás, 1 landing, 3-részes e-mail sor, 3–5 hirdetésvariáció, alap targeting és mérés.\nIdő: 24–48 óra.\nÁr: Listaár: 89 000 Ft → Béta ár: 29 000 Ft-tól\nGarancia: ha 7 nap alatt nincs mérhető aktivitás (kattintás/lead), díjmentes újratervezés.",
+    cta: "Indítsuk el a kampányt",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M3 3v18h18" />
@@ -37,43 +38,19 @@ const SERVICES = [
         <rect x="12" y="6" width="3" height="11" />
         <rect x="17" y="12" width="3" height="5" />
       </svg>
-    ),
-    color: "from-green-500 to-emerald-500"
-  },
-  {
-    id: "video",
-    title: "Videó készítés",
-    description: "Professzionális videók márkaépítéshez és marketing célokra.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-      </svg>
-    ),
-    color: "from-red-500 to-pink-500"
+    )
   },
   {
     id: "app",
-    title: "Applikáció készítés",
-    description: "Mobile és web alkalmazások fejlesztése modern technológiákkal.",
+    title: "Nexus App — App/MVP 48h",
+    description: "Mit kapsz: egyszerű web/app MVP (auth, űrlapok, lista, alap riport), no-code/low-code + AI, saját domain.\nIdő: ~48 óra.\nÁr: Listaár: 490 000 Ft → Béta ár: 149 000 Ft-tól\nMegjegyzés: nagyvállalati integrációk külön ütem/ár.",
+    cta: "Érdekel az MVP 48h alatt",
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="7" y="2" width="10" height="20" rx="2" />
         <line x1="12" y1="18" x2="12.01" y2="18" />
       </svg>
-    ),
-    color: "from-orange-500 to-amber-500"
-  },
-  {
-    id: "social",
-    title: "Közösségi média kezelése",
-    description: "Teljes körű social media menedzsment és tartalomgyártás.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-      </svg>
-    ),
-    color: "from-violet-500 to-purple-500"
+    )
   }
 ];
 
@@ -119,10 +96,10 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-2xl leading-snug md:text-4xl md:leading-snug font-semibold mb-6">
-            Szolgáltatásaim
+            Ahol a multik hónapokig egyeztetnek, mi holnapra leszállítjuk a működő rendszert.
           </h2>
           <p className="mt-3 text-sm/6 text-white/70 md:text-base/7 max-w-3xl mx-auto">
-            Komplex digitális megoldások, amelyek valóban működnek és eredményt hoznak az üzletednek
+            Nexus AI gyárt, mi emberként felügyelünk. Nincs mellébeszélés, nincs „majd jövő hónapban": 24–48 órán belül kézzelfogható eredményt kapsz – webet, videót, kampányt vagy egy működő app-MVP-t. Határidő-garancia + 100% pénzvisszafizetés. Ha csúszunk, visszautalunk – és az elkészült anyag akkor is a tiéd.
           </p>
         </motion.div>
 
@@ -151,7 +128,7 @@ export default function ServicesSection() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="inline-flex p-4 rounded-xl backdrop-blur-lg bg-white/10 border border-white/20 mb-6">
-                    <div className="text-[#9900FF]">
+                    <div className="text-white">
                       {service.icon}
                     </div>
                   </div>
@@ -162,9 +139,18 @@ export default function ServicesSection() {
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-white/70 leading-relaxed">
+                  <p className="text-white/70 leading-relaxed mb-6 whitespace-pre-line">
                     {service.description}
                   </p>
+
+                  {/* CTA Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full px-6 py-3 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  >
+                    {service.cta}
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
