@@ -38,7 +38,7 @@ export default function ComparisonSection() {
           </motion.h1>
           <motion.p
             className="mt-3 text-sm/6 text-white md:text-base/7"
-            style={{ textShadow: "0 0 16px #ffffff, 0 0 6px #ffffff, 0 0 1px #ffffff" }}
+            style={{ textShadow: "0 0 4px rgba(255,255,255,0.3)" }}
             variants={fadeUp}
             custom={1}
           >

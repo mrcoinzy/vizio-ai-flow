@@ -12,7 +12,7 @@ const PARTNERS = [
 
 export default function PartnerStrip() {
   return (
-    <div className="w-full bg-black py-12 relative overflow-hidden">
+    <div className="w-full py-20 relative overflow-hidden" style={{ backgroundColor: '#111111' }}>
       <div className="relative">
         {/* Animated partner strip */}
         <motion.div
@@ -37,8 +37,8 @@ export default function PartnerStrip() {
         </motion.div>
         
         {/* Gradient overlays for fade effect */}
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#111111] to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#111111] to-transparent z-10" />
       </div>
     </div>
   );

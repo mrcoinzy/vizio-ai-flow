@@ -38,7 +38,7 @@ function AiLaszloHero() {
               <a className="opacity-80 transition-opacity hover:opacity-100" href="#kapcsolat">Kapcsolat</a>
             </nav>
           </div>
-          <Button asChild variant="hero" size="sm" className="px-5 py-3">
+          <Button asChild variant="hero" size="sm" className="px-5 py-3 rounded-full">
             <a href="#kapcsolat" className="group inline-flex items-center gap-2">
               <span>Felveszem most a kapcsolatot!</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform group-hover:translate-x-0.5"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -50,11 +50,11 @@ function AiLaszloHero() {
       {/* Main hero */}
       <main className="relative z-10">
         <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pb-24 pt-20 text-center md:pt-28">
-          <div className="brand-grad-text text-sm font-semibold tracking-wider opacity-90">{`{ Ai ügynökség }`}</div>
-          <h1 className="mt-5 text-3xl font-semibold leading-[1.15] md:text-5xl">
+          <div className="brand-grad-text text-sm font-semibold tracking-wider opacity-90 text-center">{`{ Ai ügynökség }`}</div>
+          <h1 className="mt-5 text-3xl font-semibold leading-[1.15] md:text-5xl text-center">
             Amit mások hónapok alatt csinálnak, én napok alatt leszállítom teljes, működő üzleti rendszerként.
           </h1>
-          <p className="mt-6 max-w-2xl text-base opacity-90 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base opacity-90 md:text-lg text-center">
             Webfejlesztés és AI-folyamatok
             <br className="hidden sm:block" /> kevesebb manuális munka, több ajánlatkérés.
           </p>
