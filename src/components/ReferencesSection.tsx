@@ -25,10 +25,7 @@ const defaultReferences = [
       conv: "6,2% → 14,8%",
       roi: "ROI 5,1x",
     },
-    cover: {
-      headline: "Black & Gold Luxury",
-      sub: "DPBSS + rejtett pszichológia",
-    },
+    cover: { headline: "Black & Gold Luxury", sub: "DPBSS + rejtett pszichológia" },
   },
   {
     id: "quickfix",
@@ -38,33 +35,82 @@ const defaultReferences = [
     country: "HU",
     year: "2025",
     tags: ["App", "Weboldal", "Automatizálás"],
-    metrics: {
-      leads: "+196% qualified",
-      conv: "2,9% → 9,4%",
-      roi: "ROI 3,7x",
-    },
-    cover: {
-      headline: "AI-vezérelt jegykezelés",
-      sub: "Időpontfoglalás + admin panel",
-    },
+    metrics: { leads: "+196% qualified", conv: "2,9% → 9,4%", roi: "ROI 3,7x" },
+    cover: { headline: "AI-vezérelt jegykezelés", sub: "Időpontfoglalás + admin panel" },
+  },
+  // === Ügyfelek (felhasználó által megadva) ===
+  {
+    id: "gyulai-krisztian",
+    client: "Gyulai Krisztián",
+    title: "Életmód márka – web + IG ökoszisztéma",
+    industry: "Egészség / Életmód",
+    country: "HU",
+    year: "2025",
+    tags: ["Márka", "Weboldal", "Videó"],
+    metrics: { leads: "+54% érdeklődő", conv: "1,4% → 3,1%", roi: "ROI 2,4x" },
+    cover: { headline: "Gyulai Életmód", sub: "Tudatos élet – hitelesen" },
+    links: [
+      { label: "Instagram", url: "https://www.instagram.com/gyulaieletmod/" },
+      { label: "Weboldal", url: "https://gyulaieletmod.hu/" },
+    ],
   },
   {
-    id: "ailaszlo",
-    client: "AI László",
-    title: "Személyes márka – ügyfélszerző ökoszisztéma",
-    industry: "Ügynökség / AI",
-    country: "AT",
+    id: "bekesi-ferenc",
+    client: "Békési Ferenc (Holnap Sikere)",
+    title: "Motivációs márka – IG csatorna optimalizálás",
+    industry: "Oktatás / Motiváció",
+    country: "HU",
     year: "2025",
-    tags: ["Márka", "Videó", "Weboldal", "Automatizálás"],
-    metrics: {
-      leads: "+77 DM/11 nap",
-      conv: "IG konverzió +3,1x",
-      roi: "Organic boost",
-    },
-    cover: {
-      headline: "Fekete–fehér minimal",
-      sub: "Lila highlight (#9900FF)",
-    },
+    tags: ["Márka", "Videó", "Weboldal"],
+    metrics: { leads: "+72% qualified", conv: "1,1% → 2,6%", roi: "ROI 1,9x" },
+    cover: { headline: "Holnap Sikere", sub: "Tartalom → közösség" },
+    links: [
+      { label: "Instagram", url: "https://www.instagram.com/holnapsikere/" },
+    ],
+  },
+  {
+    id: "teralend-finance",
+    client: "Teralend Finance",
+    title: "Pénzügyi szolgáltató – web és konverziós alapok",
+    industry: "Pénzügy / Fintech",
+    country: "HU",
+    year: "2025",
+    tags: ["Weboldal", "Márka"],
+    metrics: { leads: "+33% érdeklődő", conv: "2,2% → 3,4%", roi: "ROI 2,7x" },
+    cover: { headline: "Teralend", sub: "Átlátható pénzügyek" },
+    links: [
+      { label: "Weboldal", url: "https://teralend.finance/" },
+    ],
+  },
+  {
+    id: "kalmar-balazs",
+    client: "Kalmár Balázs",
+    title: "Digitális termék funnel – kampány és márka",
+    industry: "E-kereskedelem / Oktatás",
+    country: "HU",
+    year: "2025",
+    tags: ["Weboldal", "Márka", "Videó"],
+    metrics: { leads: "+128% érdeklődő", conv: "1,8% → 5,2%", roi: "ROI 4,1x" },
+    cover: { headline: "DigitalBazsi", sub: "E-book tölcsér" },
+    links: [
+      { label: "Instagram", url: "https://www.instagram.com/kalmar_balazs25/" },
+      { label: "TikTok", url: "https://www.tiktok.com/@digitalbazsi?_t=ZT-8ywo3vtomaM&_r=1" },
+      { label: "Weboldal", url: "https://balazs-ebook.ailaszlo.com/" },
+    ],
+  },
+  {
+    id: "keresztes-attila",
+    client: "Keresztes Attila",
+    title: "Kreatív stúdió – IG arculat és rendszer",
+    industry: "Kreatív / Stúdió",
+    country: "HU",
+    year: "2025",
+    tags: ["Márka", "Videó", "Weboldal"],
+    metrics: { leads: "+41% érdeklődő", conv: "0,9% → 2,3%", roi: "ROI 1,7x" },
+    cover: { headline: "Abstractmans Studio", sub: "Portfólió és tartalom" },
+    links: [
+      { label: "Instagram", url: "https://www.instagram.com/abstractmansstudio/" },
+    ],
   },
 ];
 
@@ -72,6 +118,11 @@ const logoRow = [
   "AI László",
   "The Adriatic Dream",
   "Quickfix",
+  "Gyulai Életmód",
+  "Holnap Sikere",
+  "Teralend Finance",
+  "Kalmár Balázs",
+  "Abstractmans Studio",
   "Supabase",
   "Lovable.dev",
   "CapCut",
@@ -104,13 +155,13 @@ function useTilt() {
 
 function Metric({ label, value }) {
   return (
-    <div className="group relative rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl overflow-hidden">
+    <div className="group relative rounded-xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl overflow-hidden">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
         background:
-          "radial-gradient(1200px 1200px at var(--mx) var(--my), var(--accent-500)/0.15 0%, transparent 45%)",
+          "radial-gradient(800px 800px at var(--mx) var(--my), var(--accent-500)/0.12 0%, transparent 40%)",
       }} />
-      <div className="text-xs uppercase tracking-widest text-white/60">{label}</div>
-      <div className="mt-1 text-2xl font-semibold text-white">{value}</div>
+      <div className="text-[8px] uppercase tracking-widest text-white/50 leading-none">{label}</div>
+      <div className="mt-0.5 text-xs md:text-sm font-medium text-white leading-tight">{value}</div>
     </div>
   );
 }
@@ -119,12 +170,7 @@ function Tag({ children, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={cn(
-        "px-3 py-1 rounded-full border transition-all text-sm",
-        active
-          ? "border-white/30 bg-white/10 text-white shadow-[0_0_20px_var(--accent-500)]"
-          : "border-white/10 text-white/70 hover:border-white/20 hover:text-white"
-      )}
+      className={cn("px-3 py-1 rounded-full border border-black/10 bg-white text-black hover:bg-white/90 transition-all text-sm")}
     >
       {children}
     </button>
@@ -164,9 +210,8 @@ function Card({ item, accent }) {
 
           {/* Cover */}
           <div className="relative h-40">
-            <div
-              className="absolute inset-0"
-              style={{
+            <div className="absolute inset-0 load-in-bg"
+          style={{
                 background:
                   `linear-gradient(135deg, ${accent}33 0%, transparent 50%), radial-gradient(1000px_400px_at_80%_20%, ${accent}29, transparent 35%), linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0))`,
               }}
@@ -206,12 +251,28 @@ function Card({ item, accent }) {
               ))}
             </div>
 
+            {Array.isArray(item.links) && item.links.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {item.links.map((lnk, idx) => (
+                  <a
+                    key={idx}
+                    href={lnk.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1 text-xs text-white/80 hover:text-white hover:border-white/20"
+                  >
+                    {lnk.label}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="opacity-80">
+                      <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            )}
+
             <div className="mt-5 flex items-center justify-between">
               <button
-                className="relative inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white transition-colors"
-                style={{
-                  background: `linear-gradient(90deg, ${accent} 0%, ${accent}88 100%)`,
-                }}
+                className="relative inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium bg-white text-black transition-colors"
               >
                 Esettanulmány megnyitása
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="opacity-90">
@@ -227,9 +288,53 @@ function Card({ item, accent }) {
   );
 }
 
-export default function ReferencesSection({ accent = "#9900FF", data = defaultReferences }) {
+interface FormData {
+  name: string;
+  email: string;
+  website: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  website?: string;
+}
+
+export default function ReferenceSectionFuturistic({ accent = "#9900FF", data = defaultReferences }) {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("Mind");
+  // Lead form state
+  const [form, setForm] = useState<FormData>({ name: "", email: "", website: "" });
+  const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const validateEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errs: FormErrors = {};
+    if (!form.name.trim()) errs.name = "Kötelező";
+    if (!validateEmail(form.email)) errs.email = "Érvénytelen e‑mail";
+    if (!form.website.trim()) errs.website = "Kötelező";
+    setErrors(errs);
+    if (Object.keys(errs).length === 0) {
+      setSent(true);
+    }
+  };
+
+  // DEV sanity checks ("test cases")
+  if (typeof process !== "undefined" && process.env && process.env.NODE_ENV !== "production") {
+    console.assert(Array.isArray(data), "ReferenceSectionFuturistic: 'data' prop must be an array");
+    console.assert(typeof accent === "string" && accent.startsWith("#"), "ReferenceSectionFuturistic: 'accent' should be a hex color string");
+    console.assert(Array.isArray(logoRow) && logoRow.every((s) => typeof s === "string"), "logoRow must be an array of strings");
+    // shape tests for data items
+    data.forEach((d, i) => {
+      const path = `data[${i}]`;
+      console.assert(!!d.id && !!d.client && !!d.title, `${path}: missing id/client/title`);
+      console.assert(!!d.cover && !!d.cover.headline && !!d.cover.sub, `${path}: missing cover/headline/sub`);
+      console.assert(!!d.metrics && typeof d.metrics === 'object', `${path}: missing metrics`);
+      console.assert(['leads','conv','roi'].every(k => k in d.metrics), `${path}: metrics must include leads/conv/roi`);
+      console.assert(Array.isArray(d.tags), `${path}: tags must be an array`);
+    });
+  }
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
@@ -245,27 +350,28 @@ export default function ReferencesSection({ accent = "#9900FF", data = defaultRe
   }, [data, query, cat]);
 
   return (
-    <section
-      id="referenciak"
+    <motion.section
+      data-testid="reference-section"
       className="relative w-full overflow-hidden bg-[#0B0D12] text-white"
-      style={{
-        // Globális CSS változók az effektekhez
-        "--accent-500": accent,
-      } as React.CSSProperties}
+      style={{ '--accent-500': accent } as React.CSSProperties}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Háttér: csillagmező + radiális fények */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 load-in-bg"
           style={{
-            background:
-              "radial-gradient(1200px 600px at 10% -20%, rgba(153,0,255,0.20), transparent 60%), radial-gradient(1000px 600px at 90% 0%, rgba(99,102,241,0.14), transparent 60%)",
+            background: `radial-gradient(1400px 800px at 50% -5%, rgba(153,0,255,0.85), transparent 65%),
+               radial-gradient(1200px 700px at 50% -5%, rgba(153,0,255,0.50), transparent 75%),
+               radial-gradient(700px 500px at 50% -2%, rgba(255,255,255,0.18), transparent 60%)`,
           }}
         />
-        <svg className="absolute inset-0 h-full w-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 h-full w-full load-in-bg" style={{opacity:0.015}}>
           <defs>
             <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="1" fill="white" />
+              <circle cx="1" cy="1" r="0.6" fill="white" fillOpacity="0.15" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#dots)" />
@@ -281,18 +387,16 @@ export default function ReferencesSection({ accent = "#9900FF", data = defaultRe
             <span className="text-xs tracking-widest text-white/70 uppercase">Referenciák</span>
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold leading-tight text-white">
-            Eredmények, amik <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${accent}, #ffffff)` }}>beszélnek helyettem</span>
+            Eredmények, amik <span className="wave-text">beszélnek helyettem</span>
           </h2>
-          <p className="mt-3 max-w-2xl text-white/70">
-            Modern, futurisztikus megjelenés. Ügyfélszerző rendszerben gondolkodunk: web, app, automatizálás, videó és márka.
-          </p>
+          <p className="mt-3 max-w-2xl text-white/70">Formát adunk a növekedésnek: a vásárlói út teljes, automatizált ívén.</p>
         </motion.div>
 
         {/* KPI sor */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 kpi-row">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
             <div className="text-xs text-white/60 uppercase tracking-widest">Összes projekt</div>
-            <div className="mt-1 text-3xl font-semibold text-white">120+</div>
+            <div className="mt-1 text-3xl font-semibold text-white">11</div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
             <div className="text-xs text-white/60 uppercase tracking-widest">Átlagos átfutás</div>
@@ -319,6 +423,7 @@ export default function ReferencesSection({ accent = "#9900FF", data = defaultRe
           </div>
           <div className="relative w-full md:w-80">
             <input
+              data-testid="search-input"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Keresés név, iparág, cím szerint…"
@@ -406,22 +511,70 @@ export default function ReferencesSection({ accent = "#9900FF", data = defaultRe
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6 md:p-10 backdrop-blur-xl">
+        {/* CTA - versenytárselemzés űrlap */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6 md:p-10 backdrop-blur-xl">
           <div>
-            <h3 className="text-2xl font-semibold text-white">Ugyanezt kéred a vállalkozásodnak?</h3>
-            <p className="mt-1 text-white/70">Írj két mondatot a célodról, és 24 órán belül kapsz egy rövid, konkrét tervet.</p>
+            <h3 className="text-2xl font-semibold text-white">Versenytárselemzés 1 órán belül — ingyen</h3>
+            <p className="mt-2 text-white/70">Töltsd ki most, és 60 percen belül elküldjük a <span className="text-white">személyre szabott versenytárselemzést</span>. <span className="text-white">Ingyenes</span> — máshol akár ~30 000 Ft, már ezzel spórolsz.</p>
+            <p className="mt-2 text-xs text-white/50">100% kötelezettségmentes. Csak pontos elérhetőséget adj meg, hogy tényleg megérkezzen.</p>
           </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-white"
-            style={{ background: `linear-gradient(90deg, ${accent}, ${accent}88)` }}
-          >
-            Kérem a tervet
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
+
+          <motion.form data-testid="lead-form" onSubmit={handleSubmit} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+            <div>
+              <label className="text-xs text-white/60" htmlFor="lead-name">Név</label>
+              <input
+                id="lead-name"
+                data-testid="input-name"
+                type="text"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder="Teljes név"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-white/20"
+              />
+              {errors.name && <div className="mt-1 text-[11px] text-red-300">{errors.name}</div>}
+            </div>
+            <div>
+              <label className="text-xs text-white/60" htmlFor="lead-email">E‑mail</label>
+              <input
+                id="lead-email"
+                data-testid="input-email"
+                type="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                placeholder="pl. te@ceged.hu"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-white/20"
+              />
+              {errors.email && <div className="mt-1 text-[11px] text-red-300">{errors.email}</div>}
+            </div>
+            <div>
+              <label className="text-xs text-white/60" htmlFor="lead-website">Weboldal</label>
+              <input
+                id="lead-website"
+                data-testid="input-website"
+                type="url"
+                required
+                value={form.website}
+                onChange={(e) => setForm({ ...form, website: e.target.value })}
+                placeholder="https://ceged.hu"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-white/20"
+              />
+              {errors.website && <div className="mt-1 text-[11px] text-red-300">{errors.website}</div>}
+            </div>
+            <button
+              type="submit"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-white/90"
+            >
+              Küldés
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="opacity-90">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {sent && (
+              <p className="text-sm text-green-300">Köszönjük! <span className="text-white">1 órán belül</span> küldjük a versenytárselemzést a megadott e‑mail címre.</p>
+            )}
+          </motion.form>
         </div>
       </div>
 
@@ -429,7 +582,34 @@ export default function ReferencesSection({ accent = "#9900FF", data = defaultRe
       <style>{`
         .marquee { display: flex; animation: marquee 24s linear infinite; }
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* Wave gradient only on 'beszélnek helyettem' */
+        .wave-text{
+          background: linear-gradient(90deg, rgba(255,255,255,0.35), #ffffff, rgba(255,255,255,0.35));
+          background-size: 200% 100%;
+          -webkit-background-clip: text; background-clip: text; color: transparent;
+          animation: waveWhite 5s ease-in-out infinite;
+          text-shadow: 0 0 12px rgba(255,255,255,0.25);
+        }
+        @keyframes waveWhite {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* Page-load fades */
+        .load-in { opacity: 0; transform: translateY(10px); animation: loadFade 700ms cubic-bezier(.22,.61,.36,1) forwards; }
+        .load-in-bg { opacity: 0; animation: bgIn 900ms ease-out forwards; }
+        @keyframes loadFade { to { opacity: 1; transform: translateY(0); } }
+        @keyframes bgIn { to { opacity: 1; } }
+
+        /* KPI stagger */
+        .kpi-row > div { opacity: 0; transform: translateY(10px); animation: loadFade 700ms cubic-bezier(.22,.61,.36,1) forwards; }
+        .kpi-row > div:nth-child(1) { animation-delay: .05s }
+        .kpi-row > div:nth-child(2) { animation-delay: .15s }
+        .kpi-row > div:nth-child(3) { animation-delay: .25s }
+        .kpi-row > div:nth-child(4) { animation-delay: .35s }
       `}</style>
-    </section>
+    </motion.section>
   );
 }
