@@ -2,6 +2,7 @@ import AiLaszloHero from "@/components/AiLaszloHero";
 import PartnerStrip from "@/components/PartnerStrip";
 import ComparisonSection from "@/components/ComparisonSection";
 import ServicesSection from "@/components/ServicesSection";
+import ReferencesSection from "@/components/ReferencesSection";
 import ScrollNavbar from "@/components/ScrollNavbar";
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
       <PartnerStrip />
       <ComparisonSection />
       <ServicesSection />
+      <ReferencesSection />
     </div>
   );
 };
