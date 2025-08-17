@@ -303,6 +303,7 @@ interface FormErrors {
 export default function ReferenceSectionFuturistic({ accent = "#9900FF", data = defaultReferences }) {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("Mind");
+  const [showAll, setShowAll] = useState(false);
   // Lead form state
   const [form, setForm] = useState<FormData>({ name: "", email: "", website: "" });
   const [sent, setSent] = useState(false);
@@ -453,11 +454,26 @@ export default function ReferenceSectionFuturistic({ accent = "#9900FF", data = 
         {/* Kártyák */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
-            {filtered.map((item) => (
+            {(showAll ? filtered : filtered.slice(0, 3)).map((item) => (
               <Card key={item.id} item={item} accent={accent} />
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Show More Button */}
+        {filtered.length > 3 && !showAll && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-xl transition-all hover:border-white/20 hover:bg-white/10"
+            >
+              Megtekintem a többi referenciát
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="opacity-90">
+                <path d="M7 13l3 3 7-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        )}
 
         {/* Ügyfél-vélemény slider */}
         <div className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-6 md:p-10 backdrop-blur-xl">

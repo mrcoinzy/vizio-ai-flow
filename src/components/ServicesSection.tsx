@@ -47,21 +47,6 @@ const SERVICES = [{
         <rect x="12" y="6" width="3" height="11" />
         <rect x="17" y="12" width="3" height="5" />
       </svg>
-}, {
-  id: "app",
-  title: "Nexus App",
-  subtitle: "Hamarosan",
-  description: "Egyszerű web/app MVP (auth, űrlapok, lista, alap riport), no-code/low-code + AI, saját domain.",
-  time: "~48 óra",
-  price: "149 000 Ft-tól",
-  originalPrice: "490 000 Ft",
-  guarantee: "Határidő-garancia",
-  notIncluded: "nagyvállalati integrációk",
-  cta: "Hamarosan elérhető",
-  icon: <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="7" y="2" width="10" height="20" rx="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
-      </svg>
 }];
 export default function ServicesSection() {
   const containerVariants = {
