@@ -187,7 +187,7 @@ export default function ServiceCarousel() {
   const next = (i + 1) % SERVICES.length;
 
   return (
-    <div className="w-full min-h-[88vh] bg-black grid place-items-center px-4">
+    <div className="w-full min-h-[88vh] grid place-items-center px-4" style={{ backgroundColor: "#111111" }}>
       <div className="relative w-full max-w-[1200px]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
