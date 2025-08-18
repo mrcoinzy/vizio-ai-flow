@@ -1,212 +1,236 @@
-import React from "react";
-import { motion } from "framer-motion";
-const SERVICES = [{
-  id: "web",
-  title: "Nexus Web",
-  subtitle: "Weboldal 24h alatt",
-  description: "1 oldalas vagy mini-site (3–5 szekció), mobil-first, gyors betöltés, űrlap/naptár, alap SEO, jogi oldal sablon, mérés.",
-  time: "max. 24 óra",
-  price: "59 000 Ft-tól",
-  originalPrice: "140 000 Ft",
-  guarantee: "100% visszatérítés + kész anyag a tiéd",
-  notIncluded: "egyedi backend, komplex webshop",
-  cta: "Kérem a 24h webet",
-  icon: <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="4" width="18" height="12" rx="2" />
-        <path d="M2 20h20" />
-      </svg>
-}, {
-  id: "video",
-  title: "Nexus Video",
-  subtitle: "Mini-Ads 6–7h alatt",
-  description: "15–60 mp social/ads videó (script + vágás + felirat + zene/licenc stock), márkához igazítva.",
-  time: "max. 7 óra",
-  price: "7 000 Ft-tól",
-  originalPrice: "79 000 Ft",
-  guarantee: "100% vissza + fájl a tiéd",
-  notIncluded: "helyszíni forgatás, színész, 3D",
-  cta: "Kérek egy videót ma",
-  icon: <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-      </svg>
-}, {
-  id: "marketing",
-  title: "Nexus Launch",
-  subtitle: "Kampány & marketing 24–48h",
-  description: "Ajánlat/üzenet csiszolás, 1 landing, 3-részes e-mail sor, 3–5 hirdetésvariáció, alap targeting és mérés.",
-  time: "24–48 óra",
-  price: "29 000 Ft-tól",
-  originalPrice: "89 000 Ft",
-  guarantee: "7 nap alatt nincs aktivitás = díjmentes újratervezés",
-  notIncluded: "",
-  cta: "Indítsuk el a kampányt",
-  icon: <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M3 3v18h18" />
-        <rect x="7" y="10" width="3" height="7" />
-        <rect x="12" y="6" width="3" height="11" />
-        <rect x="17" y="12" width="3" height="5" />
-      </svg>
-}];
-export default function ServicesSection() {
-  const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-  return <section className="min-h-screen w-full bg-[#111111] text-white py-20 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const ACCENT = "#9900FF";
+
+const SERVICES = [
+  {
+    id: "webdev",
+    title: "web.development",
+    description:
+      "Maßgeschneiderte Web-Entwicklung für dynamische Online-Shops und individuelle Webprojekte.",
+    tags: ["custom", "cms", "shopify", "laravel", "onepager", "+ more"],
+    cta: "dann lass von dir hören!",
+  },
+  {
+    id: "social",
+    title: "social.media",
+    description:
+      "Effektives Social Media Content Management für eine authentische und einflussreiche Online-Präsenz.",
+    tags: ["content", "ads", "automation", "analytics"],
+    cta: "dann lass von dir hören!",
+  },
+  {
+    id: "performance",
+    title: "performance",
+    description: "Speed, SEO, Conversion. Audit → Plan → messbare Ergebnisse.",
+    tags: ["lighthouse 95+", "core web vitals", "A/B"],
+    cta: "audit anfordern",
+  },
+];
+
+function SquareAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="black" opacity=".4" />
+      <rect x="7.8" y="7.5" width="8.5" height="9" rx="2" fill="#fff" opacity=".12" />
+      <circle cx="12" cy="12" r="2" fill="#fff" opacity=".2" />
+    </svg>
+  );
+}
+
+function PanelIllustration() {
+  return (
+    <svg width="220" height="160" viewBox="0 0 340 220" aria-hidden="true">
+      <g fill="none" stroke="#fff" opacity="0.14">
+        <rect x="10" y="40" width="130" height="80" rx="12" />
+        <rect x="54" y="24" width="130" height="100" rx="14" />
+      </g>
+      <g>
+        <g transform="translate(160,20)">
+          <rect x="0" y="0" width="70" height="90" rx="10" fill="#1A1A1A" stroke="#000" opacity=".6" />
+          <rect x="16" y="-10" width="70" height="110" rx="10" fill="#0F0F12" stroke="#000" opacity=".85" />
+          <rect x="32" y="6" width="72" height="128" rx="12" fill="#121215" stroke="#000" opacity="1" />
+          <rect x="26" y="18" width="44" height="8" rx="4" fill={ACCENT} />
+          <rect x="40" y="60" width="8" height="8" rx="4" fill={ACCENT} />
+          <rect x="52" y="32" width="46" height="8" rx="4" fill={ACCENT} />
+          <g opacity=".5" stroke="#fff">
+            <path d="M68 80h36" />
+            <path d="M68 96h28" />
+            <path d="M68 112h20" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+function GhostServiceCard({ service, side }) {
+  const isLeft = side === "left";
+  return (
+    <div
+      className={`pointer-events-none absolute ${isLeft ? "left-[-48px] md:left-[-72px]" : "right-[-48px] md:right-[-72px]"} top-1/2 -translate-y-1/2 z-0`}
+      style={{ transformOrigin: "center" }}
+    >
+      <div
+        className="relative rounded-[20px] overflow-hidden"
+        style={{
+          width: 520,
+          height: 320,
+          transform: `rotate(${isLeft ? -5 : 5}deg)`,
+          background: `linear-gradient(180deg, ${ACCENT} 0%, rgba(0,0,0,.35) 100%)`,
+          boxShadow: `0 18px 60px -20px ${ACCENT}55`,
+          opacity: 0.9,
+        }}
+      >
+        <div className="w-full h-full bg-black/35" />
+        <div className="absolute inset-0 p-6 text-white">
+          <div className="flex items-center gap-3">
+            <div className="rounded-[10px] w-8 h-8 grid place-items-center bg-black/40 border" style={{ borderColor: "#fff3" }}>
+              <SquareAppIcon />
+            </div>
+            <h4 className="text-xl font-extrabold tracking-tight">{service.title}</h4>
+          </div>
+          <p className="mt-3 max-w-md text-white/85 text-sm leading-relaxed" style={{ maxHeight: 56, overflow: "hidden" }}>
+            {service.description}
+          </p>
+        </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* Header */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true,
-        margin: "-100px"
-      }} transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }} className="text-center mb-16">
-          <h2 className="text-2xl leading-snug md:text-4xl md:leading-snug font-semibold mb-6">
-            Ahol a multik hónapokig egyeztetnek, mi holnapra leszállítjuk a működő rendszert.
-          </h2>
-          <p className="mt-3 text-sm/6 text-white/70 md:text-base/7 max-w-3xl mx-auto">Nexus AI gyárt, mi emberként felügyelünk. Nincs mellébeszélés, nincs „majd jövő hónapban": 24–48 órán belül kézzelfogható eredményt kapsz webet, videót, kampányt.</p>
-        </motion.div>
-
-        {/* Services Grid */}
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
-        once: true,
-        margin: "-50px"
-      }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => <motion.div key={service.id} variants={itemVariants} whileHover={{
-          y: -10,
-          scale: 1.02,
-          transition: {
-            duration: 0.2
-          }
-        }} className="group relative">
-              {/* Card */}
-              <div className="relative h-full p-8 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-lg">
-                {/* Content */}
-                <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon */}
-                  <div className="inline-flex p-4 rounded-xl backdrop-blur-lg bg-white/10 border border-white/20 mb-6 w-fit">
-                    <div className="text-white">
-                      {service.icon}
-                    </div>
-                  </div>
-                  
-                  {/* Title & Subtitle */}
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold mb-1 text-white">
-                      {service.title}
-                    </h3>
-                    <p className="text-[#9900FF] text-sm font-medium">
-                      {service.subtitle}
-                    </p>
-                  </div>
-                  
-                  {/* Description */}
-                  <p className="text-white/70 leading-relaxed mb-6 text-sm">
-                    {service.description}
-                  </p>
-
-                  {/* Info Grid */}
-                  <div className="space-y-3 mb-6 flex-grow">
-                    {/* Time */}
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5">
-                      <span className="text-white/60 text-xs">Idő:</span>
-                      <span className="text-white font-medium text-sm">{service.time}</span>
-                    </div>
-                    
-                    {/* Price */}
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5">
-                      <span className="text-white/60 text-xs">Béta ár:</span>
-                      <div className="text-right">
-                        <span className="text-[#9900FF] font-bold text-sm">{service.price}</span>
-                        <div className="text-white/40 text-xs line-through">{service.originalPrice}</div>
-                      </div>
-                    </div>
-
-                    {/* Guarantee */}
-                    <div className="py-2 px-3 rounded-lg bg-green-500/10 border border-green-500/20">
-                      <span className="text-green-400 text-xs font-medium">Garancia: {service.guarantee}</span>
-                    </div>
-
-                    {/* Not Included */}
-                    {service.notIncluded && <div className="py-2 px-3 rounded-lg bg-orange-500/10 border border-orange-500/20">
-                        <span className="text-orange-400 text-xs">Nem tartalmazza: {service.notIncluded}</span>
-                      </div>}
-                  </div>
-
-                  {/* CTA Button */}
-                  <motion.button whileHover={{
-                scale: 1.02
-              }} whileTap={{
-                scale: 0.98
-              }} className="w-full px-6 py-3 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mt-auto">
-                    {service.cta}
-                  </motion.button>
-                </div>
+function ServiceCard({ s }) {
+  return (
+    <div className="relative z-10" style={{ width: 680, maxWidth: "92vw" }}>
+      <div className="absolute inset-0 rounded-[24px]" style={{ boxShadow: `0 0 0 2px ${ACCENT}` }} />
+      <div className="relative rounded-[24px] bg-[#0B0B0E] text-white overflow-hidden p-8 md:p-10">
+        <div
+          className="pointer-events-none absolute -inset-[1px] rounded-[24px]"
+          style={{ background: `radial-gradient(85% 60% at 50% 0%, ${ACCENT}22, transparent 60%)`, filter: "blur(18px)" }}
+        />
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="rounded-[12px] w-10 h-10 grid place-items-center" style={{ background: ACCENT }}>
+                <SquareAppIcon />
               </div>
-            </motion.div>)}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true,
-        margin: "-100px"
-      }} transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.3
-      }} className="text-center mt-16">
-          <p className="text-lg text-white/70 mb-8">Határidő-garancia + 100% pénzvisszafizetés. Ha csúszunk, visszautalunk és az elkészült anyag akkor is a tiéd.</p>
-          <motion.button whileHover={{
-          scale: 1.05
-        }} whileTap={{
-          scale: 0.95
-        }} className="px-8 py-4 bg-[#9900FF] text-white font-semibold rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-            Beszéljünk a projektedről
-          </motion.button>
-        </motion.div>
+              <h3 className="text-[28px] md:text-[32px] font-extrabold tracking-tight">{s.title}</h3>
+            </div>
+            <p className="max-w-2xl text-white/85 leading-relaxed font-mono text-[15px]">{s.description}</p>
+            <div className="mt-6 flex items-center gap-4">
+              <button className="inline-flex items-center gap-2 rounded-full bg-white text-black font-semibold px-5 py-3 shadow">
+                <span className="inline-grid place-items-center rounded-full w-8 h-8" style={{ background: ACCENT }}>
+                  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
+                    <path d="M4 12a8 8 0 0 1 8-8m0 0a8 8 0 0 1 8 8m-8-8v16" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <span>{s.cta}</span>
+              </button>
+              <button className="w-10 h-10 rounded-full grid place-items-center border" style={{ borderColor: "#fff", background: "transparent" }}>
+                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {s.tags.map((t) => (
+                <span key={t} className="px-4 py-[6px] rounded-full border text-sm" style={{ borderColor: "#fff", color: "#fff", background: "#000" }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <PanelIllustration />
+          </div>
+        </div>
       </div>
-    </section>;
+    </div>
+  );
+}
+
+function SideLineArrow({ onClick, side = "left" }) {
+  const isLeft = side === "left";
+  return (
+    <button
+      onClick={onClick}
+      type="button"
+      aria-label={isLeft ? "prev" : "next"}
+      className={`z-20 cursor-pointer absolute ${isLeft ? "left-6 md:left-10" : "right-6 md:right-10"} top-1/2 -translate-y-1/2 text-white/90`}
+    >
+      <svg viewBox="0 0 80 60" width="64" height="48" aria-hidden="true">
+        {isLeft ? (
+          <path d="M58 30H10M22 18l-12 12 12 12" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M22 30h48M58 18l12 12-12 12" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
+export default function ServiceCarousel() {
+  const [i, setI] = useState(0);
+  const go = (d) => setI((p) => (p + d + SERVICES.length) % SERVICES.length);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const prev = (i - 1 + SERVICES.length) % SERVICES.length;
+  const next = (i + 1) % SERVICES.length;
+
+  return (
+    <div className="w-full min-h-[88vh] bg-black grid place-items-center px-4">
+      <div className="relative w-full max-w-[1200px]">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={`left-${SERVICES[prev].id}`}
+            initial={{ opacity: 0, x: -60, scale: 0.9 }}
+            animate={{ opacity: 0.95, x: 0, scale: 0.92 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={{ duration: 0.3 }}
+            className="z-0"
+          >
+            <GhostServiceCard service={SERVICES[prev]} side="left" />
+          </motion.div>
+
+          <motion.div
+            key={`right-${SERVICES[next].id}`}
+            initial={{ opacity: 0, x: 60, scale: 0.9 }}
+            animate={{ opacity: 0.95, x: 0, scale: 0.92 }}
+            exit={{ opacity: 0, x: 60 }}
+            transition={{ duration: 0.3 }}
+            className="z-0"
+          >
+            <GhostServiceCard service={SERVICES[next]} side="right" />
+          </motion.div>
+        </AnimatePresence>
+
+        <SideLineArrow side="left" onClick={() => go(-1)} />
+        <SideLineArrow side="right" onClick={() => go(1)} />
+
+        <div className="relative flex items-center justify-center z-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={SERVICES[i].id}
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.98 }}
+              transition={{ duration: 0.28 }}
+              className="mx-auto"
+            >
+              <ServiceCard s={SERVICES[i]} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
 }
