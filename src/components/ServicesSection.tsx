@@ -74,14 +74,14 @@ function GhostServiceCard({ service, side }) {
   const IconComponent = service.icon;
   return (
     <div
-      className={`pointer-events-none absolute ${isLeft ? "left-[-120px] md:left-[-180px]" : "right-[-120px] md:right-[-180px]"} top-[70%] -translate-y-1/2 z-0`}
+      className={`pointer-events-none absolute ${isLeft ? "left-[-200px] md:left-[-280px]" : "right-[-200px] md:right-[-280px]"} top-1/2 -translate-y-1/2 z-0`}
       style={{ transformOrigin: "center" }}
     >
       <div
         className="relative rounded-[20px] overflow-hidden"
         style={{
-          width: 420,
-          height: 280,
+          width: 380,
+          height: 420,
           background: `linear-gradient(180deg, ${ACCENT} 0%, rgba(0,0,0,.35) 100%)`,
           boxShadow: `0 18px 60px -20px ${ACCENT}55`,
           opacity: 0.7,
@@ -112,9 +112,9 @@ function GhostServiceCard({ service, side }) {
 function ServiceCard({ s }) {
   const IconComponent = s.icon;
   return (
-    <div className="relative z-10" style={{ width: 680, maxWidth: "92vw" }}>
+    <div className="relative z-10" style={{ width: 720, maxWidth: "92vw" }}>
       <div className="absolute inset-0 rounded-[24px]" style={{ boxShadow: `0 0 0 2px ${ACCENT}` }} />
-      <div className="relative rounded-[24px] bg-[#0B0B0E] text-white overflow-hidden p-8 md:p-10">
+      <div className="relative rounded-[24px] bg-[#0B0B0E] text-white overflow-hidden p-8 md:p-12" style={{ minHeight: 480 }}>
         <div
           className="pointer-events-none absolute -inset-[1px] rounded-[24px]"
           style={{ background: `radial-gradient(85% 60% at 50% 0%, ${ACCENT}22, transparent 60%)`, filter: "blur(18px)" }}
