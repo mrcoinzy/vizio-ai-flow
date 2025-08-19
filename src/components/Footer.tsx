@@ -38,47 +38,50 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Közép: szekciók */}
-        <nav className="mx-auto -translate-x-4 sm:-translate-x-6 lg:-translate-x-8">
-          <ul className="flex flex-nowrap items-center gap-x-6 text-white/80">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="hover:text-white transition">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* Közép és jobb: szekciók + közösségi + jogi egy sorban */}
+        <div className="md:col-span-2 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Navigációs linkek */}
+          <nav>
+            <ul className="flex flex-nowrap items-center gap-x-6 text-white/80">
+              {NAV_LINKS.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="hover:text-white transition">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        {/* Jobb: közösségi + jogi */}
-        <div className="flex flex-col md:items-end gap-4">
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.instagram.com/ailaszlo.startup/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram – @ailaszlo.startup"
-              className="relative inline-flex p-2 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5"
-            >
-              <Instagram className="h-5 w-5 text-white" />
-              <span className="pointer-events-none absolute -inset-2 -z-10 opacity-40 blur-xl" style={{ background: "radial-gradient(closest-side, #d62976, transparent)" }} />
-            </a>
-            <a
-              href="https://www.tiktok.com/@ailaszlo.startup?_t=ZT-8z0eB2f2mAB&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok – @ailaszlo.startup"
-              className="relative inline-flex p-2 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5"
-            >
-              <TikTokIcon className="h-5 w-5 text-white" />
-              <span className="pointer-events-none absolute -inset-2 -z-10 opacity-40 blur-xl" style={{ background: "radial-gradient(closest-side, #00f2ea, transparent)" }} />
-            </a>
-          </div>
+          {/* Jobb: közösségi + jogi */}
+          <div className="flex flex-col items-center md:items-end gap-4">
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.instagram.com/ailaszlo.startup/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram – @ailaszlo.startup"
+                className="relative inline-flex p-2 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5"
+              >
+                <Instagram className="h-5 w-5 text-white" />
+                <span className="pointer-events-none absolute -inset-2 -z-10 opacity-40 blur-xl" style={{ background: "radial-gradient(closest-side, #d62976, transparent)" }} />
+              </a>
+              <a
+                href="https://www.tiktok.com/@ailaszlo.startup?_t=ZT-8z0eB2f2mAB&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok – @ailaszlo.startup"
+                className="relative inline-flex p-2 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5"
+              >
+                <TikTokIcon className="h-5 w-5 text-white" />
+                <span className="pointer-events-none absolute -inset-2 -z-10 opacity-40 blur-xl" style={{ background: "radial-gradient(closest-side, #00f2ea, transparent)" }} />
+              </a>
+            </div>
 
-          <div className="flex flex-wrap md:justify-end items-center gap-x-6 gap-y-2 text-sm">
-            <a href="/jogi-nyilatkozat" className="text-white/75 hover:text-white">Jogi nyilatkozat</a>
-            <a href="/adatkezeles" className="text-white/75 hover:text-white">Privacy Policy</a>
+            <div className="flex flex-wrap md:justify-end items-center gap-x-6 gap-y-2 text-sm">
+              <a href="/jogi-nyilatkozat" className="text-white/75 hover:text-white">Jogi nyilatkozat</a>
+              <a href="/adatkezeles" className="text-white/75 hover:text-white">Privacy Policy</a>
+            </div>
           </div>
         </div>
       </div>
