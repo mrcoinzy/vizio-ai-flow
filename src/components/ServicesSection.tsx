@@ -1,31 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Laptop, Instagram, Code, Rocket } from "lucide-react";
 
 const ACCENT = "#9900FF";
 
 const SERVICES = [
   {
     id: "webdev",
-    title: "web.development",
+    title: "web.fejlesztés",
     description:
-      "Maßgeschneiderte Web-Entwicklung für dynamische Online-Shops und individuelle Webprojekte.",
-    tags: ["custom", "cms", "shopify", "laravel", "onepager", "+ more"],
-    cta: "dann lass von dir hören!",
+      "Egyedi architektúra, Core Web Vitals-ra optimalizált teljesítmény, értékesítési tölcsére optimalizált UX és konverzióközpontú tartalom. Biztonság, SEO és analitika alapértelmezetten. Limitált ügyfélvétel, senior megvalósítás az elejétől a végéig.",
+    tags: ["egyedi", "cms", "shopify", "laravel", "onepager", "+ több"],
+    cta: "Megvalósítom a tervemet",
+    icon: Laptop,
   },
   {
     id: "social",
-    title: "social.media",
+    title: "social.média",
     description:
-      "Effektives Social Media Content Management für eine authentische und einflussreiche Online-Präsenz.",
-    tags: ["content", "ads", "automation", "analytics"],
-    cta: "dann lass von dir hören!",
+      "Hatékony social media tartalomkezelés autentikus és befolyásos online jelenlétért. Organikus tartalom, fizetett hirdetések és analitika egy platformon.",
+    tags: ["tartalom", "hirdetések", "automatizálás", "analitika"],
+    cta: "Megvalósítom a tervemet",
+    icon: Instagram,
   },
   {
-    id: "performance",
-    title: "performance",
-    description: "Speed, SEO, Conversion. Audit → Plan → messbare Ergebnisse.",
-    tags: ["lighthouse 95+", "core web vitals", "A/B"],
-    cta: "audit anfordern",
+    id: "software",
+    title: "szoftver.fejlesztés",
+    description: "Egyedi üzleti alkalmazások és automatizált folyamatok fejlesztése. Modern technológiák, skálázható megoldások és folyamatos támogatás vállalkozásod növekedéséhez.",
+    tags: ["automatizálás", "integráció", "API", "adatbázis"],
+    cta: "Megvalósítom a tervemet",
+    icon: Code,
   },
 ];
 
@@ -67,6 +71,7 @@ function PanelIllustration() {
 
 function GhostServiceCard({ service, side }) {
   const isLeft = side === "left";
+  const IconComponent = service.icon;
   return (
     <div
       className={`pointer-events-none absolute ${isLeft ? "left-[-48px] md:left-[-72px]" : "right-[-48px] md:right-[-72px]"} top-[75%] -translate-y-1/2 z-0`}
@@ -86,7 +91,7 @@ function GhostServiceCard({ service, side }) {
         <div className="absolute inset-0 p-6 text-white">
           <div className="flex items-center gap-3">
             <div className="rounded-[10px] w-8 h-8 grid place-items-center bg-black/40 border" style={{ borderColor: "#fff3" }}>
-              <SquareAppIcon />
+              <IconComponent className="w-4 h-4 text-white" />
             </div>
             <h4 className="text-xl font-extrabold tracking-tight">{service.title}</h4>
           </div>
@@ -100,6 +105,7 @@ function GhostServiceCard({ service, side }) {
 }
 
 function ServiceCard({ s }) {
+  const IconComponent = s.icon;
   return (
     <div className="relative z-10" style={{ width: 680, maxWidth: "92vw" }}>
       <div className="absolute inset-0 rounded-[24px]" style={{ boxShadow: `0 0 0 2px ${ACCENT}` }} />
@@ -112,7 +118,7 @@ function ServiceCard({ s }) {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="rounded-[12px] w-10 h-10 grid place-items-center" style={{ background: ACCENT }}>
-                <SquareAppIcon />
+                <IconComponent className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-[28px] md:text-[32px] font-extrabold tracking-tight">{s.title}</h3>
             </div>
@@ -120,9 +126,7 @@ function ServiceCard({ s }) {
             <div className="mt-6 flex items-center gap-4">
               <button className="inline-flex items-center gap-2 rounded-full bg-white text-black font-semibold px-5 py-3 shadow">
                 <span className="inline-grid place-items-center rounded-full w-8 h-8" style={{ background: ACCENT }}>
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
-                    <path d="M4 12a8 8 0 0 1 8-8m0 0a8 8 0 0 1 8 8m-8-8v16" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
+                  <Rocket className="w-4 h-4 text-white" />
                 </span>
                 <span>{s.cta}</span>
               </button>
@@ -186,8 +190,16 @@ export default function ServiceCarousel() {
   const next = (i + 1) % SERVICES.length;
 
   return (
-    <div className="w-full min-h-[88vh] grid place-items-center px-4" style={{ backgroundColor: "#111111" }}>
-      <div className="relative w-full max-w-[1200px]">
+    <div className="w-full min-h-[88vh] px-4" style={{ backgroundColor: "#111111" }}>
+      <div className="text-center mb-16 pt-16">
+        <h2 className="text-white text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
+          Ahol a multik hónapokig egyeztetnek, mi holnapra leszállítjuk a működő rendszert.
+        </h2>
+        <p className="text-white/85 text-lg max-w-4xl mx-auto leading-relaxed">
+          Nexus AI gyárt, mi emberként felügyelünk. Nincs mellébeszélés, nincs „majd jövő hónapban": 24–48 órán belül kézzelfogható eredményt kapsz webet, videót, kampányt.
+        </p>
+      </div>
+      <div className="relative w-full max-w-[1200px] mx-auto">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={`left-${SERVICES[prev].id}`}
