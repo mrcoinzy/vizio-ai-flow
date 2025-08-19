@@ -353,13 +353,13 @@ export default function ReferenceSectionFuturistic({ accent = "#9900FF", data = 
   return (
     <motion.section
       data-testid="reference-section"
-      className="relative w-full overflow-hidden bg-[#0B0D12] text-white"
+      className="relative w-full overflow-hidden bg-[#111111] text-white"
       style={{ '--accent-500': accent } as React.CSSProperties}
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      {/* Háttér: csillagmező + radiális fények */}
+      {/* Háttér: radiális fények */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute inset-0 load-in-bg"
@@ -369,14 +369,6 @@ export default function ReferenceSectionFuturistic({ accent = "#9900FF", data = 
                radial-gradient(700px 500px at 50% -2%, rgba(255,255,255,0.18), transparent 60%)`,
           }}
         />
-        <svg className="absolute inset-0 h-full w-full load-in-bg" style={{opacity:0.015}}>
-          <defs>
-            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="0.6" fill="white" fillOpacity="0.15" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots)" />
-        </svg>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
       </div>
 
