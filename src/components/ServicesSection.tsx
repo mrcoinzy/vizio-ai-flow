@@ -74,17 +74,17 @@ function GhostServiceCard({ service, side }) {
   const IconComponent = service.icon;
   return (
     <div
-      className={`pointer-events-none absolute ${isLeft ? "left-[-48px] md:left-[-72px]" : "right-[-48px] md:right-[-72px]"} top-[75%] -translate-y-1/2 z-0`}
+      className={`pointer-events-none absolute ${isLeft ? "left-[-120px] md:left-[-180px]" : "right-[-120px] md:right-[-180px]"} top-[70%] -translate-y-1/2 z-0`}
       style={{ transformOrigin: "center" }}
     >
       <div
         className="relative rounded-[20px] overflow-hidden"
         style={{
-          width: 520,
-          height: 320,
+          width: 420,
+          height: 280,
           background: `linear-gradient(180deg, ${ACCENT} 0%, rgba(0,0,0,.35) 100%)`,
           boxShadow: `0 18px 60px -20px ${ACCENT}55`,
-          opacity: 0.9,
+          opacity: 0.7,
         }}
       >
         <div className="w-full h-full bg-black/35" />
@@ -190,8 +190,8 @@ export default function ServiceCarousel() {
   const next = (i + 1) % SERVICES.length;
 
   return (
-    <div className="w-full min-h-[88vh] px-4" style={{ backgroundColor: "#111111" }}>
-      <div className="text-center mb-16 pt-16">
+    <div className="w-full min-h-screen px-4 py-16" style={{ backgroundColor: "#111111" }}>
+      <div className="text-center mb-20">
         <h2 className="text-white text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
           Ahol a multik hónapokig egyeztetnek, mi holnapra leszállítjuk a működő rendszert.
         </h2>
@@ -199,12 +199,13 @@ export default function ServiceCarousel() {
           Nexus AI gyárt, mi emberként felügyelünk. Nincs mellébeszélés, nincs „majd jövő hónapban": 24–48 órán belül kézzelfogható eredményt kapsz webet, videót, kampányt.
         </p>
       </div>
-      <div className="relative w-full max-w-[1200px] mx-auto">
+      
+      <div className="relative w-full max-w-[1400px] mx-auto min-h-[500px] flex items-center">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={`left-${SERVICES[prev].id}`}
             initial={{ opacity: 0, x: -60, scale: 0.9 }}
-            animate={{ opacity: 0.95, x: 0, scale: 0.92 }}
+            animate={{ opacity: 0.6, x: 0, scale: 0.85 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.3 }}
             className="z-0"
@@ -215,7 +216,7 @@ export default function ServiceCarousel() {
           <motion.div
             key={`right-${SERVICES[next].id}`}
             initial={{ opacity: 0, x: 60, scale: 0.9 }}
-            animate={{ opacity: 0.95, x: 0, scale: 0.92 }}
+            animate={{ opacity: 0.6, x: 0, scale: 0.85 }}
             exit={{ opacity: 0, x: 60 }}
             transition={{ duration: 0.3 }}
             className="z-0"
@@ -227,7 +228,7 @@ export default function ServiceCarousel() {
         <SideLineArrow side="left" onClick={() => go(-1)} />
         <SideLineArrow side="right" onClick={() => go(1)} />
 
-        <div className="relative flex items-center justify-center z-10">
+        <div className="relative flex items-center justify-center z-10 w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={SERVICES[i].id}
