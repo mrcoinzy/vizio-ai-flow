@@ -74,7 +74,7 @@ function GhostServiceCard({ service, side }) {
   const IconComponent = service.icon;
   return (
     <div
-      className={`pointer-events-none absolute ${isLeft ? "left-[-150px] md:left-[-200px]" : "right-[-150px] md:right-[-200px]"} top-1/2 -translate-y-1/2 z-0`}
+      className={`pointer-events-none absolute ${isLeft ? "left-[-80px] md:left-[-120px]" : "right-[-80px] md:right-[-120px]"} top-1/2 -translate-y-1/2 z-0`}
       style={{ transformOrigin: "center" }}
     >
       <div
