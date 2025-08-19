@@ -27,7 +27,7 @@ export default function Footer() {
             <img 
               src="/lovable-uploads/23331ebe-3999-4522-ad66-7af6c42ff357.png" 
               alt="Ai László logó" 
-              className="h-16 w-auto opacity-90 group-hover:opacity-100 transition" 
+              className="h-20 w-auto opacity-90 group-hover:opacity-100 transition" 
             />
             <span className="sr-only">Vissza a kezdőlapra</span>
           </a>
