@@ -69,19 +69,18 @@ function PanelIllustration() {
   );
 }
 
-function GhostServiceCard({ service, side }) {
-  const isLeft = side === "left";
+function GhostServiceCard({ service }) {
   const IconComponent = service.icon;
   return (
     <div
-      className={`pointer-events-none absolute ${isLeft ? "left-[-80px] md:left-[-120px]" : "right-[-80px] md:right-[-120px]"} top-1/2 -translate-y-1/2 z-0`}
-      style={{ transformOrigin: "center" }}
+      className="pointer-events-none relative z-0 flex-shrink-0"
+      style={{ width: 380, height: 420, transformOrigin: "center" }}
     >
       <div
         className="relative rounded-[20px] overflow-hidden"
         style={{
-          width: 380,
-          height: 420,
+          width: "100%",
+          height: "100%",
           background: `linear-gradient(180deg, ${ACCENT} 0%, rgba(0,0,0,.35) 100%)`,
           boxShadow: `0 18px 60px -20px ${ACCENT}55`,
           opacity: 0.7,
@@ -90,17 +89,23 @@ function GhostServiceCard({ service, side }) {
         <div className="w-full h-full bg-black/35" />
         <div className="absolute inset-0 p-6 text-white">
           <div className="flex items-center gap-3">
-            <div className="rounded-[10px] w-8 h-8 grid place-items-center bg-black/40 border" style={{ borderColor: "#fff3" }}>
+            <div
+              className="rounded-[10px] w-8 h-8 grid place-items-center bg-black/40 border"
+              style={{ borderColor: "#fff3" }}
+            >
               <IconComponent className="w-4 h-4 text-white" />
             </div>
             <h4 className="text-xl font-extrabold tracking-tight">{service.title}</h4>
           </div>
-          <p className="mt-3 max-w-md text-white/85 text-sm leading-relaxed font-poppins" style={{ 
-            display: '-webkit-box',
-            WebkitLineClamp: 4,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden'
-          }}>
+          <p
+            className="mt-3 max-w-md text-white/85 text-sm leading-relaxed font-poppins"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 4,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
             {service.description}
           </p>
         </div>
@@ -205,7 +210,8 @@ export default function ServiceCarousel() {
         </p>
       </div>
       
-      <div className="relative w-full max-w-[1400px] mx-auto min-h-[500px] flex items-center">
+      <div className="relative w-full max-w-[1400px] mx-auto min-h-[500px] flex items-center justify-center gap-6">
+        <SideLineArrow side="left" onClick={() => go(-1)} />
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={`left-${SERVICES[prev].id}`}
@@ -215,9 +221,24 @@ export default function ServiceCarousel() {
             transition={{ duration: 0.3 }}
             className="z-0"
           >
-            <GhostServiceCard service={SERVICES[prev]} side="left" />
+            <GhostServiceCard service={SERVICES[prev]} />
           </motion.div>
+        </AnimatePresence>
 
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={SERVICES[i].id}
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.98 }}
+            transition={{ duration: 0.28 }}
+            className="mx-auto z-10"
+          >
+            <ServiceCard s={SERVICES[i]} />
+          </motion.div>
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={`right-${SERVICES[next].id}`}
             initial={{ opacity: 0, x: 60, scale: 0.9 }}
@@ -226,27 +247,10 @@ export default function ServiceCarousel() {
             transition={{ duration: 0.3 }}
             className="z-0"
           >
-            <GhostServiceCard service={SERVICES[next]} side="right" />
+            <GhostServiceCard service={SERVICES[next]} />
           </motion.div>
         </AnimatePresence>
-
-        <SideLineArrow side="left" onClick={() => go(-1)} />
         <SideLineArrow side="right" onClick={() => go(1)} />
-
-        <div className="relative flex items-center justify-center z-10 w-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={SERVICES[i].id}
-              initial={{ opacity: 0, y: 20, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.98 }}
-              transition={{ duration: 0.28 }}
-              className="mx-auto"
-            >
-              <ServiceCard s={SERVICES[i]} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
       </div>
     </div>
   );
