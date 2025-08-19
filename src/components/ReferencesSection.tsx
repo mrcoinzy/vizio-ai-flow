@@ -196,7 +196,7 @@ function Card({ item, accent }) {
         }}
         onMouseLeave={onLeave}
         style={style}
-        className="group relative h-full rounded-3xl border border-white/10 bg-white/5 p-0.5 backdrop-blur-xl transition-all duration-300 hover:border-white/20"
+        className="group relative h-full rounded-3xl bg-white/5 p-0.5 backdrop-blur-xl transition-all duration-300"
       >
         <div className="relative rounded-[22px] h-full overflow-hidden">
           {/* Neon edge */}
