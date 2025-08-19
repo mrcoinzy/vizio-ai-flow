@@ -20,26 +20,9 @@ export default function Footer() {
   return (
     <footer className="relative mt-8">
       {/* FEJLÉC ALATTI VONALAK ELTÁVOLÍTVA – nincs hr/border */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-        {/* Bal: logó + szlogen + email */}
-        <div className="flex flex-col gap-3">
-          <a href="#home" className="inline-flex items-center gap-3 group">
-            <img 
-              src="/lovable-uploads/23331ebe-3999-4522-ad66-7af6c42ff357.png" 
-              alt="Ai László logó" 
-              className="h-20 w-auto opacity-90 group-hover:opacity-100 transition transform scale-125" 
-            />
-            <span className="sr-only">Vissza a kezdőlapra</span>
-          </a>
-          {/* Kért szlogen (ponttal együtt) */}
-          <p className="text-sm text-white/70">.Clearity that converts</p>
-          <a href="mailto:hello@ailaszlo.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white mt-1">
-            <Mail className="h-5 w-5" /> hello@ailaszlo.com
-          </a>
-        </div>
-
-        {/* Közép és jobb: szekciók + közösségi + jogi egy sorban */}
-        <div className="md:col-span-2 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Navigációs linkek és jobb oldali elemek egy sorban */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Navigációs linkek */}
           <nav>
             <ul className="flex flex-nowrap items-center gap-x-6 text-white/80">
