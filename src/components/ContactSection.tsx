@@ -8,7 +8,7 @@ import { Mail, Send } from "lucide-react";
 export default function ContactSection() {
   return (
     <section id="kapcsolat" className="py-20 px-4" style={{ backgroundColor: "#111111" }}>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-white text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
             Kapcsolat felvétel
@@ -18,7 +18,39 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Bal oldali szöveg */}
+          <div className="space-y-6">
+            <h3 className="text-white text-2xl font-bold">
+              Indítsuk el közösen a projekted!
+            </h3>
+            <div className="space-y-4 text-white/85">
+              <p className="leading-relaxed">
+                24-48 órán belül kézzelfogható eredményt kapsz. Nincs mellébeszélés, 
+                nincs „majd jövő hónapban" - konkrét megoldásokat szállítunk gyorsan és hatékonyan.
+              </p>
+              <p className="leading-relaxed">
+                Egyedi webfejlesztés, social media management vagy szoftverautomatizálás - 
+                válassz a szolgáltatásaim közül és tapasztald meg a különbséget.
+              </p>
+            </div>
+            
+            <div className="pt-6">
+              <div className="flex items-center gap-3 text-white/80 mb-4">
+                <Mail className="w-5 h-5 text-[#9900FF]" />
+                <span>Közvetlen elérhetőség:</span>
+              </div>
+              <a 
+                href="mailto:hello@ailaszlo.com" 
+                className="text-[#9900FF] hover:text-[#8800DD] transition-colors font-medium text-lg"
+              >
+                hello@ailaszlo.com
+              </a>
+            </div>
+          </div>
+
+          {/* Jobb oldali űrlap */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
           <form className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-white text-sm font-medium">
@@ -66,18 +98,6 @@ export default function ContactSection() {
               </Button>
             </div>
           </form>
-
-          <div className="mt-12 text-center">
-            <div className="flex items-center justify-center gap-3 text-white/80">
-              <Mail className="w-5 h-5" />
-              <span>Vagy írj közvetlenül: </span>
-              <a 
-                href="mailto:hello@ailaszlo.com" 
-                className="text-[#9900FF] hover:text-[#8800DD] transition-colors font-medium"
-              >
-                hello@ailaszlo.com
-              </a>
-            </div>
           </div>
         </div>
       </div>
