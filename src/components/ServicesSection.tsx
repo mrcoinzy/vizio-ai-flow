@@ -95,7 +95,12 @@ function GhostServiceCard({ service, side }) {
             </div>
             <h4 className="text-xl font-extrabold tracking-tight">{service.title}</h4>
           </div>
-          <p className="mt-3 max-w-md text-white/85 text-sm leading-relaxed" style={{ maxHeight: 56, overflow: "hidden" }}>
+          <p className="mt-3 max-w-md text-white/85 text-sm leading-relaxed font-poppins" style={{ 
+            display: '-webkit-box',
+            WebkitLineClamp: 4,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden'
+          }}>
             {service.description}
           </p>
         </div>
@@ -122,7 +127,7 @@ function ServiceCard({ s }) {
               </div>
               <h3 className="text-[28px] md:text-[32px] font-extrabold tracking-tight">{s.title}</h3>
             </div>
-            <p className="max-w-2xl text-white/85 leading-relaxed font-mono text-[15px]">{s.description}</p>
+            <p className="max-w-2xl text-white/85 leading-relaxed font-poppins text-[15px]">{s.description}</p>
             <div className="mt-6 flex items-center gap-4">
               <button className="inline-flex items-center gap-2 rounded-full bg-white text-black font-semibold px-5 py-3 shadow">
                 <span className="inline-grid place-items-center rounded-full w-8 h-8" style={{ background: ACCENT }}>
