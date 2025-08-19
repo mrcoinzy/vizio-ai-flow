@@ -69,7 +69,7 @@ function GhostServiceCard({ service, side }) {
   const isLeft = side === "left";
   return (
     <div
-      className={`pointer-events-none absolute ${isLeft ? "left-[-48px] md:left-[-72px]" : "right-[-48px] md:right-[-72px]"} top-[60%] -translate-y-1/2 z-0`}
+      className={`pointer-events-none absolute ${isLeft ? "left-[-48px] md:left-[-72px]" : "right-[-48px] md:right-[-72px]"} top-[75%] -translate-y-1/2 z-0`}
       style={{ transformOrigin: "center" }}
     >
       <div
