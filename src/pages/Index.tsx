@@ -3,6 +3,8 @@ import PartnerStrip from "@/components/PartnerStrip";
 import ComparisonSection from "@/components/ComparisonSection";
 import ServicesSection from "@/components/ServicesSection";
 import ReferencesSection from "@/components/ReferencesSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 import ScrollNavbar from "@/components/ScrollNavbar";
 
 const Index = () => {
@@ -14,6 +16,8 @@ const Index = () => {
       <ComparisonSection />
       <ServicesSection />
       <ReferencesSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
